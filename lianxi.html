@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="gon1/gon1.css">
+        <link rel="stylesheet" href="gon2/gon2.css">
+         <link rel="stylesheet" href="gon3/gon3.css">
+            <script src="js/jquery-1.11.1.js"></script>
+        <script>
+            $(function(){
+                    $('.head_1 ul li').hover(function() {
+                        /* Stuff to do when the mouse enters the element */
+                        $(this).children('a').addClass('head_lei')
+                        $(this).siblings('li').children('a').removeClass('head_lei')
+                    }, function() {
+                        /* Stuff to do when the mouse leaves the element */
+                        $('.head_1 ul li:nth-of-type(5)').children('a').addClass('head_lei');
+                        $('.head_1 ul li:nth-of-type(5)').siblings('li').children('a').removeClass('head_lei')
+                    });
+
+
+
+
+
+
+
+
+                    var a=0;
+                    var time;
+                    function cc(){
+                        clearInterval(time)
+                        time=setInterval(function(){
+                            a+=1;
+                            if(a>2){
+                                a=0;
+                            }
+                            $('.content ul li').eq(a).addClass('content_banner').siblings('li').removeClass('content_banner');
+                        },1500)
+                    }
+                    cc()
+
+                    $('.content').hover(function() {
+                        /* Stuff to do when the mouse enters the element */
+                        clearInterval(time)
+                    }, function() {
+                        /* Stuff to do when the mouse leaves the element */
+                        cc()
+                    });
+
+                    $('.content span').eq(0).click(function(event) {
+                        /* Act on the event */
+                        a-=1;
+                        if(a<0){
+                            a=2
+                        }
+                        $('.content ul li').eq(a).addClass('content_banner').siblings('li').removeClass('content_banner');
+                    });
+
+                    $('.content span').eq(1).click(function(event) {
+                        /* Act on the event */
+                        a+=1;
+                        if(a>2){
+                            a=0
+                        }
+                        $('.content ul li').eq(a).addClass('content_banner').siblings('li').removeClass('content_banner');
+                    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            })
+        </script>
+         <style>
+         	*{
+         		margin: 0px;
+         		padding: 0px;
+         		list-style: none;
+         	}
+         	.zhen{
+         		width: 900px;
+         		height: 930px;
+         		margin: 0px auto;
+         		/* border: 1px solid #000; */
+                overflow: hidden;
+         	}
+         	.top{
+         		width: 100%;
+         		height: 400px;
+         		/* border: 1px solid #554432; */
+         	}
+         	.top_1{
+         		width: 100%;
+         		height: 40px;
+         		/* border: 1px solid #554432; */
+				position: relative;
+         	}
+         	.top_1 hr{
+         		width: 100%;
+         		size: 1px;
+         		color: #ddd;
+         		margin-top: 20px;
+
+         	}
+         	.top_1 p{
+         		width: 70px;
+         		height: 30px;
+         		background: #4d3c24;
+         		color: #ddd;
+         		position: absolute;      		
+         		text-align: center;
+				left: 45%;
+				top: -8px;
+         	}
+
+         	.top_2{
+				width: 700px;
+				height: 320px;
+				margin: 30px auto;
+				/* border: 1px solid #554432; */
+         	}
+         	.top_2_left{
+         		float: left;
+         		width: 350px;
+         		height: 300px;
+         		overflow: hidden;
+         	}
+         	.top_2_left img{
+         		width: 100%;
+         		height: 100%;
+         	}
+
+         	.top_2_right{
+				float: right;
+				width: 260px;
+				height: 300px;
+				/* border: 1px solid #554432; */
+
+         	}
+         	.top_2_right li{
+         		width: 100%;
+				height: 30px;
+				margin-bottom: 12px;
+				color: #fff;
+         	}
+
+
+				.bottom{
+				width: 100%;
+         		height: 500px;
+         		/* border: 1px solid #554432; */
+         		position: relative;
+         		overflow: hidden;
+				}
+
+				.bottom_1 hr{
+         		width: 100%;
+         		size: 1px;
+         		color: #fff;
+         		margin-top: 15px;
+
+         	}
+         	    .bottom_1 p{
+         		width: 70px;
+         		height: 30px;
+         		background: #554430;
+         		color: #fff;
+         		position: absolute;      		
+         		text-align: center;
+				left: 45%;
+				top: 5px;
+         	}
+         	.bottom_2{
+         		width: 700px;
+         		height: 420px;
+         		margin: 0px auto;
+         		margin-top: 60px;
+         		position: relative;
+         	}
+         	.bottom_2 form{
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+            .bottom_2 form input{
+                background: #554430;
+                width: 200px;
+                height: 20px;
+                border: 1px solid #fff;
+                color: #fff;
+                margin-bottom: 10px;
+            }
+             .bottom_2 form .left{
+                    float: left;
+                }
+             .bottom_2 form .right{
+                   float: right;
+                } 
+            .bottom_2 form textarea{
+                    width: 99%;
+                    height: 200px;
+                    border: 1px solid #fff;
+                    background: #554430;
+                    margin-top: 30px;
+                    color: #fff;
+               }
+         	.bottom_2_center{
+                display: block;
+                width: 100px;
+                height: 20px;
+                border: 1px solid #fff;
+                margin:20px auto;
+                text-align: left;
+            }
+            .he{
+                cursor: pointer;
+            }
+         </style>
+    </head>
+    <body>
+       <div class="head">
+    <div class="head_1">
+    	<img src="gon1/logo.png" alt="">
+    	<ul>
+    		<li><a href="index.html">首页</a></li>
+            <li><a href="gonshi.html">公司介绍</a></li>
+            <li><a href="canpin.html">新闻中心</a></li>
+            <li><a href="canpin2.html">产品中心</a></li>
+            <li><a href="lianxi.html" class="head_lei">联系我们</a></li>
+    	</ul>
+    	<p>设为主页&nbsp;&nbsp;|&nbsp;&nbsp;收藏本页</p>
+    	<div class="head_1_1">
+            <input type="text" placeholder="请输入您要搜索的内容">
+            <img src="image/search.png" alt="">
+        </div>
+    </div>
+    </div>
+
+
+
+<div class="content">
+        <ul>
+            <li class="content_banner"><img src="image/01banner.png" alt=""></li>
+            <li><img src="image/02banner.png" alt=""></li>
+            <li><img src="image/03banner.png" alt=""></li>
+        </ul>
+        <span><img src="image/zuo.png" alt=""></span>
+        <span><img src="image/you.png" alt=""></span>
+  </div>
+
+
+
+    <div class="footer">
+    	<div class="zhen">
+    		<div class="top">
+
+    		  <div class="top_1">
+    		      <hr>
+    		      <p>联系我们</p>
+    		  </div>
+				<div class="top_2">
+
+    			 
+    			<div class="top_2_left"> <img src="image/img8.jpg" alt=""></div> 
+    			 
+					
+					<ul class="top_2_right">
+						<li>联系人：仏几幅</li>
+						<li>职&nbsp;&nbsp;位：业务进来</li>
+						<li>电&nbsp;&nbsp;话：98w734983749</li>
+						<li>传&nbsp;&nbsp;真：192873987429834</li>
+						<li>手&nbsp;&nbsp;机：238798092183</li>
+						<li>安替省泰然农业科技发展有限公司</li>
+						<li>公司主页：wwwsdsfsadsf</li>
+					</ul>
+    			 </div>
+    		</div>
+
+
+
+
+
+
+    		<div class="bottom">
+
+
+    			<div class="bottom_1">
+    		      <hr>
+    		      <p>留言板</p>
+    		  </div>
+
+
+				<div class="bottom_2">
+					<form action="">
+                    <input type="text" placeholder="姓名:" class="left">  
+                    <input type="text" placeholder="QQ:" class="right">  <br><br><br>
+                    <input type="text" placeholder="手机:" class="left">  
+                    <input type="text" placeholder="邮箱:" class="right">   
+                    <textarea name="" id="" cols="30" rows="10" resize="none" placeholder="请输入内容:"></textarea>  
+                              <input type="text" placeholder="请输入验证码:" class="bottom_2_center"> 
+                              
+                              <input type="submit" value="提交留言" class="bottom_2_center he"> 
+                    </form>
+				</div>
+    		</div>
+    	</div>
+    </div> 
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

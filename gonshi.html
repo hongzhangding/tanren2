@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="gon1/gon1.css">
+        <link rel="stylesheet" href="gon2/gon2.css">
+         <link rel="stylesheet" href="gon3/gon3.css">
+           <script src="js/jquery-1.11.1.js"></script>
+        <script>
+            $(function(){
+                    $('.head_1 ul li').hover(function() {
+                        $(this).children('a').addClass('head_lei')
+                        $(this).siblings('li').children('a').removeClass('head_lei')
+                    }, function() {
+                        $('.head_1 ul li:nth-of-type(2)').children('a').addClass('head_lei');
+                        $('.head_1 ul li:nth-of-type(2)').siblings('li').children('a').removeClass('head_lei')
+                    });
+
+
+
+
+
+
+
+
+                    var a=0;
+                    var time;
+                    function cc(){
+                        clearInterval(time)
+                        time=setInterval(function(){
+                            a+=1;
+                            if(a>2){
+                                a=0;
+                            }
+                            $('.content ul li').eq(a).addClass('content_banner').siblings('li').removeClass('content_banner');
+                        },1500)
+                    }
+                    cc()
+
+                    $('.content').hover(function() {
+                        clearInterval(time)
+                    }, function() {
+                        cc()
+                    });
+
+                    $('.content span').eq(0).click(function(event) {
+                        a-=1;
+                        if(a<0){
+                            a=2
+                        }
+                        $('.content ul li').eq(a).addClass('content_banner').siblings('li').removeClass('content_banner');
+                    });
+
+                    $('.content span').eq(1).click(function(event) {
+                        /* Act on the event */
+                        a+=1;
+                        if(a>2){
+                            a=0
+                        }
+                        $('.content ul li').eq(a).addClass('content_banner').siblings('li').removeClass('content_banner');
+                    });
+
+
+
+                        $('.zhen_1 ul li').hover(function() {
+                            $(this).css('color', 'red').siblings('li').css('color', '#fff');;
+                        }, function() {
+                            /* Stuff to do when the mouse leaves the element */
+                        });
+                    $('.zhen_1 ul li').click(function(event) {
+                        /* Act on the event */
+                        var d=$(this).index();
+                        $('.zhen_2 span').eq(d).css('display', 'block').siblings('span').css('display', 'none');
+                    });
+
+
+
+
+
+
+
+
+
+            })
+        </script>
+         <style>
+         *{
+         	margin: 0px;
+         	padding: 0px;
+         	list-style: none;
+            text-decoration: none;
+         }
+         	.zhen{
+				width: 900px;
+				height: 700px;
+				margin: 0px auto;
+                overflow: hidden;
+         	}
+         	.zhen_1{
+         		width: 500px;
+         		height: 40px;
+         		margin: 30px auto;
+         		color: #fff;
+         	}
+         	.zhen_1 li{
+         		float: left;
+         		width: 100px;
+         		margin-left: 15px;
+         		text-align: center;
+                color: #fff;
+                cursor: pointer;
+         	}
+
+         	.zhen_1_p1{
+         		float: left;
+         	}
+         	.zhen_1_p2{
+         		float: right
+         	}
+
+
+
+         .zhen_2{
+			width: 100%;
+			height: 550px;
+			position: relative;
+
+		     }
+		     .zhen_2 hr{
+		     	margin-top: 12px;
+		     }
+		     .zhen_2 span{
+		     	width: 100px;
+		     	height: 24px;
+		     	color: #fff;
+		     	position: absolute;
+		     	top: 0px;
+		     	left: 45%;
+		     	background: #554432;
+		     	text-align: center;
+               display: none;
+		     }
+                .zhen_2 span:nth-of-type(1){
+                    display: block;
+                } 
+               
+
+		     .zhen_2 p{
+		     	width: 800px;
+		     	margin: 0px auto;
+		     	margin-top: 30px;
+		     	color: #fff;
+		     	line-height: 30px;
+		     	text-indent: 2em;
+		     }
+
+         </style>
+    </head>
+    <body>
+      <div class="head">
+    <div class="head_1">
+    	<img src="gon1/logo.png" alt="">
+    	<ul>
+    		<li><a href="index.html">首页</a></li>
+            <li><a href="gonshi.html" class="head_lei">公司介绍</a></li>
+            <li><a href="canpin.html">新闻中心</a></li>
+            <li><a href="canpin2.html">产品中心</a></li>
+            <li><a href="lianxi.html">联系我们</a></li>
+    	</ul>
+    	<p>设为主页&nbsp;&nbsp;|&nbsp;&nbsp;收藏本页</p>
+    	<div class="head_1_1">
+            <input type="text" placeholder="请输入您要搜索的内容">
+            <img src="image/search.png" alt="">
+        </div>
+    </div>
+    </div>
+
+
+
+    
+<div class="content">
+        <ul>
+            <li class="content_banner"><img src="image/01banner.png" alt=""></li>
+            <li><img src="image/02banner.png" alt=""></li>
+            <li><img src="image/03banner.png" alt=""></li>
+        </ul>
+        <span><img src="image/zuo.png" alt=""></span>
+        <span><img src="image/you.png" alt=""></span>
+  </div>
+
+
+
+
+    <div class="footer">
+    	<div class="zhen">
+    		<div class="zhen_1">
+    		<p class="zhen_1_p1">【</p>
+
+    			<ul>
+    				<li>公司介绍</li>
+                    <li>主营业务</li>
+    				<li>服务理念</li>
+    				<li>发展历程</li>	
+    			</ul>
+
+    			<p class="zhen_1_p2">】</p>
+    		</div>
+
+
+				
+
+
+    		<div class="zhen_2">
+    			<hr>
+    			<span>公司介绍</span>
+                <span>主营业务</span>
+                <span>服务理念</span>
+                <span>发展历程</span>
+					
+					<p>
+						空间都ID后来分开的时间分离开时间了空间受到了开发建设了科技发达了空间上的浪费空间都洒了福克斯哦idofiudsofi空间都是离开房间觉得
+						<p>
+						是浪费快结束了是来访客户度搜if换来的是看风景了时刻就废了两点上课就放了点时空机房里卡时间了空间都是佛离开的时间法律框架空间都是浪费空间的浪费空间发了空间都ID后来分开的时间分离开时间了空间受到了</p>
+						<p>
+						开发建设了科技发达了空间上的浪费空间都洒了福克斯哦idofiudsofi空间都是离开房间觉得是浪费快结束了是来访客户度搜if换来的是看风景了时刻就废了两点上课就放了点时空机房里卡时间了空间都是佛离开的时间法律框架空间都是浪费空间的浪费空间发了访客户度搜if换来的是看风景了时刻就废了两点上课就放了点时空机房里卡时间了空间都是佛
+					</p>
+						<p>
+						离开的时间法律框架空间都是浪费空间的浪费空间发了空间都ID后来分开的时间分离开时间了空间受到了开发建设了科技发达了空间上的浪费空间都洒了福克斯哦idofiudsofi空间都是离开房间觉得是浪费快结束了是来访客户度搜if换来的是看风景了
+						</p>
+						<p>
+						时刻就废了两点上课就放了点时空机房里卡时间了空间都是佛离开的时间法律框架空间都是浪费空间的浪费空间发了
+						</p>
+
+					</p>
+    		</div>
+    	</div>
+    </div>
+    </body>
+</html>
