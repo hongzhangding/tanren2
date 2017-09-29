@@ -8,18 +8,13 @@
            <script src="js/jquery-1.11.1.js"></script>
         <script>
             $(function(){
-                    $('.head_1 ul li').hover(function() {
+                    $('.head_1>ul li').hover(function() {
                         $(this).children('a').addClass('head_lei')
                         $(this).siblings('li').children('a').removeClass('head_lei')
                     }, function() {
-                        $('.head_1 ul li:nth-of-type(2)').children('a').addClass('head_lei');
-                        $('.head_1 ul li:nth-of-type(2)').siblings('li').children('a').removeClass('head_lei')
+                        $('.head_1>ul li:nth-of-type(2)').children('a').addClass('head_lei');
+                        $('.head_1>ul li:nth-of-type(2)').siblings('li').children('a').removeClass('head_lei')
                     });
-
-
-
-
-
 
 
 
@@ -72,16 +67,43 @@
                         var d=$(this).index();
                         $('.zhen_2 span').eq(d).css('display', 'block').siblings('span').css('display', 'none');
                     });
-
-
-
-
-
-
-
-
-
             })
+            
+            
+            
+            	function fn(date){
+        		var head_1_1=document.getElementsByClassName("head_1_1")[0];
+        	    var oL=head_1_1.getElementsByTagName("ol")[0];
+        	    var str="";
+        	    for(var i=0;i<date.s.length;i++){
+        	    	str+='<a target="_blank" href="https://www.baidu.com/s?wd='+date.s[i]+'"><li>'+date.s[i]+'</li></a>';
+        	    }
+        	    oL.innerHTML=str;
+        	}
+        	window.onload=function(){
+        		var head_1_1=document.getElementsByClassName("head_1_1")[0];
+        		var ipt=head_1_1.getElementsByTagName("input")[0];
+        		var a=head_1_1.getElementsByTagName("a")[0];
+        		var oL=head_1_1.getElementsByTagName("ol")[0];
+        		
+        		ipt.onkeyup=function(){
+        			if(ipt.value!=""){
+						oL.style.display="block";
+						var script=document.createElement("script");
+					    script.src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+this.value+"&cb=fn"
+					    document.body.appendChild(script);
+					}else{
+						oL.style.display="none";
+					}
+        		}
+        		a.onclick=function(){
+        			this.href='https://www.baidu.com/s?wd='+ipt.value;
+        			
+        		}
+        	}
+
+
+
         </script>
          <style>
          *{
@@ -169,10 +191,12 @@
     	</ul>
     	<p>设为主页&nbsp;&nbsp;|&nbsp;&nbsp;收藏本页</p>
     	<div class="head_1_1">
-            <input type="text" placeholder="请输入您要搜索的内容">
-            <img src="image/search.png" alt="">
-        </div>
-    </div>
+			<input type="text" placeholder="搜索泰然农业">
+			 <a href="" target="_blank"><img src="image/search.png" alt=""></a>
+			<ol>
+			</ol>
+    	</div>
+       </div>
     </div>
 
 
